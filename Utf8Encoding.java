@@ -13,6 +13,8 @@ class Utf8Encoding{
                     rbytes = 2;
                 }else if((val & (val >> 3)) == 0b11110){ // 1th byte of 4 length string
                     rbytes = 3;
+                }else{
+                    return false;
                 }
             }else{
                 if((val & (val >> 6)) == 0b10){
@@ -23,7 +25,11 @@ class Utf8Encoding{
             }
         }
 
-        return true;
+        if(rbytes == 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public static void main(String[] args){
