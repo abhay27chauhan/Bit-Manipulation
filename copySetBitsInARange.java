@@ -8,7 +8,7 @@ class copySetBitsInARange{
 
         int mask = (1 << (right-left+1));
         mask--;
-        mask = (1<<(left-1));
+        mask = (mask<<(left-1));
 
         mask = (a & (mask));
 
