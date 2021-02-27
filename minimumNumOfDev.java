@@ -25,24 +25,24 @@ class minimumNumOfDev{
 
     public static void main(String[] args){
         Scanner scn = new Scanner(System.in);
-		int n = scn.nextInt();
-		HashMap<String, Integer> smap = new HashMap<>();
-		for (int i = 0; i < n; i++) {
-			smap.put(scn.next(), i);
-		}
-		
-		int np = scn.nextInt();
-		int[] people = new int[np];
-		for (int i = 0; i < np; i++) {
-			int personSkills = scn.nextInt();
-			for (int j = 0; j < personSkills; j++) {
-				String skill = scn.next();
-				int snum = smap.get(skill);
-				people[i] = people[i] | (1 << snum);
-			}
-		}
+	int n = scn.nextInt();
+	HashMap<String, Integer> smap = new HashMap<>();
+	for (int i = 0; i < n; i++) {
+		smap.put(scn.next(), i);
+	}
 
-		solution(people, n, 0, new ArrayList<>(), 0);
-		System.out.println(sol);
+	int np = scn.nextInt();
+	int[] people = new int[np];
+	for (int i = 0; i < np; i++) {
+	    int personSkills = scn.nextInt();
+	    for (int j = 0; j < personSkills; j++) {
+		String skill = scn.next();
+		int snum = smap.get(skill);
+		people[i] = people[i] | (1 << snum);
+	    }
+	}
+
+	solution(people, n, 0, new ArrayList<>(), 0);
+	System.out.println(sol);
     }
 }
